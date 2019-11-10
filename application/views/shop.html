@@ -29,45 +29,98 @@
 
         <!--header middel start-->
         <div class="header_middel">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-2 col-md-3">
-                        <div class="logo">
-                            <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2 col-md-3">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-10 col-md-9">
-                        <div class="middel_right">
-                            <div class="search_btn">
-                                <a href="#"><i class="ion-ios-search-strong"></i></a>
-                                <div class="dropdown_search">
-                                    <form action="#">
-                                        <input placeholder="Search product..." type="text">
-                                        <button type="submit"><i class="ion-ios-search-strong"></i></button>
-                                    </form>
+                        <div class="col-lg-10 col-md-9">
+                            <div class="middel_right">
+                                <div class="search_btn">
+                                    <a href="#"><i class="ion-ios-search-strong"></i></a>
+                                    <div class="dropdown_search">
+                                        <form action="#">
+                                            <input placeholder="Search product..." type="text">
+                                            <button type="submit"><i class="ion-ios-search-strong"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="box_setting">
+                                    <a href="#"><i class="ion-gear-b"></i></a>
+                                    <div class="dropdown_setting">
+                                        <ul>
+                                            <li><a href="checkout.html">Checkout </a></li>
+                                            <li><a href="login.html">My Account </a></li>
+                                            <li><a href="profile.html">Profile </a></li>
+                                            <li><a href="cart.html">Shopping Cart</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li><a href="cart.html">Cart</a></li>
+                                            <li><a href="shop.html">Shop</a></li>
+                                            <li><a href="index.html">Logout</a></li>
+                                        </ul>
+    
+                                    </div>
+                                </div>
+                                <div class="cart_link">
+                                    <a href="#"><i class="ion-android-cart"></i>Rp. 73.000 <i class="fa fa-angle-down"></i></a>
+                                    <span class="cart_quantity">2</span>
+                                    <!--mini cart-->
+                                    <div class="mini_cart">
+                                        <div class="mini_cart_inner">
+                                            <div class="cart_item">
+                                                <div class="cart_img">
+                                                    <a href="#"><img src="assets/img/s-product/apel.jpg" alt=""></a>
+                                                </div>
+                                                <div class="cart_info">
+                                                    <a href="#">Apel</a>
+    
+                                                    <span class="quantity">Qty: 1</span>
+                                                    <span class="price_cart">Rp. 43.000</span>
+    
+                                                </div>
+                                                <div class="cart_remove">
+                                                    <a href="#"><i class="ion-android-close"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="cart_item">
+                                                <div class="cart_img">
+                                                    <a href="#"><img src="assets/img/s-product/strawberry.jpg" alt=""></a>
+                                                </div>
+                                                <div class="cart_info">
+                                                    <a href="#">Strawberry</a>
+                                                    <span class="quantity">Qty: 1</span>
+                                                    <span class="price_cart">Rp. 30.000</span>
+                                                </div>
+                                                <div class="cart_remove">
+                                                    <a href="#"><i class="ion-android-close"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="cart_total">
+                                                <span>Subtotal:</span>
+                                                <span>Rp. 73.000</span>
+                                            </div>
+                                        </div>
+                                        <div class="mini_cart_footer">
+                                            <div class="cart_button view_cart">
+                                                <a href="cart.html">View cart</a>
+                                            </div>
+                                            <div class="cart_button checkout">
+                                                <a href="checkout.html">Checkout</a>
+                                            </div>
+    
+                                        </div>
+    
+                                    </div>
+                                    <!--mini cart end-->
                                 </div>
                             </div>
-                            <div class="box_setting">
-                                <a href="#"><i class="ion-gear-b"></i></a>
-                                <div class="dropdown_setting">
-                                    <ul>
-                                        <li><a href="checkout.html">Checkout </a></li>
-                                        <li><a href="login.html">My Account </a></li>
-                                        <li><a href="cart.html">Shopping Cart</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="shop.html">Shop</a></li>
-                                    </ul>
-
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--header middel end-->
+            <!--header middel end-->
 
         <!--header bottom satrt-->
         <div class="header_bottom sticky-header">
@@ -100,14 +153,7 @@
                     <!--shop toolbar start-->
                     <div class="shop_toolbar">
                         <div class="list_button">
-                            <!-- <ul class="nav" role="tablist">
-                                <li>
-                                    <a class="active" data-toggle="tab" href="#large" role="tab" aria-controls="large" aria-selected="true"><i class="ion-grid"></i></a>
-                                </li>
-                                <li>
-                                    <a  data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false"><i class="ion-ios-list-outline"></i> </a>
-                                </li>
-                            </ul> -->
+                            <!--  -->
                         </div>
                         <div class="orderby_wrapper">
                             <h3>Sort By : </h3>
@@ -116,20 +162,11 @@
                                 <form class="select_option" action="#">
 
                                     <select name="orderby" id="short">
-                                        <!-- <option selected value="1">Sort by popularity</option>
-                                        <option  value="2">Sort by popularity</option>
-                                        <option value="3">Sort by newness</option> -->
                                         <option value="4">Sort by price: low to high</option>
                                         <option value="5">Sort by price: high to low</option>
-                                        <!-- <option value="6">Product Name: Z</option> -->
                                     </select>
                                 </form>
-
-
                             </div>
-                            <!-- <div class="page_amount">
-                                <p>Showing 1–9 of 21 results</p>
-                            </div> -->
                         </div>
                     </div>
                     <!--shop toolbar end-->
