@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2019 at 11:15 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Generation Time: Nov 10, 2019 at 07:31 PM
+-- Server version: 10.3.15-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -69,8 +69,26 @@ CREATE TABLE `rincian_pesan` (
 CREATE TABLE `sayur` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `foto` varchar(255) NOT NULL,
   `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sayur`
+--
+
+INSERT INTO `sayur` (`id`, `nama`, `deskripsi`, `foto`, `harga`) VALUES
+(1, 'Anggur', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt, neque vitae aliquet mollis', 'anggur.jpg', 65000),
+(2, 'Apel', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt, neque vitae aliquet mollis', 'apel.jpg', 43000),
+(3, 'Jeruk', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt, neque vitae aliquet mollis', 'jeruk.jpg', 20000),
+(4, 'Mangga', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt, neque vitae aliquet mollis', 'mangga.jpg', 15000),
+(5, 'Markisa', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt, neque vitae aliquet mollis', 'markisa.jpg', 23000),
+(6, 'Melon', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt, neque vitae aliquet mollis', 'melon.jpg', 25000),
+(7, 'Pear', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt, neque vitae aliquet mollis', 'pear.jpg', 33000),
+(8, 'Pisang', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt, neque vitae aliquet mollis', 'pisang.jpg', 20000),
+(9, 'Semangka', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt, neque vitae aliquet mollis', 'semangka.jpg', 20000),
+(10, 'Strawberry', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt, neque vitae aliquet mollis', 'strawberry.jpg', 30000);
 
 -- --------------------------------------------------------
 
@@ -81,9 +99,17 @@ CREATE TABLE `sayur` (
 CREATE TABLE `stok_sayur` (
   `id` int(11) NOT NULL,
   `id_sayur` int(11) NOT NULL,
-  `waktu_datang` int(11) NOT NULL,
+  `waktu_datang` datetime NOT NULL,
   `stok` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `stok_sayur`
+--
+
+INSERT INTO `stok_sayur` (`id`, `id_sayur`, `waktu_datang`, `stok`) VALUES
+(1, 1, '2019-11-11 00:00:00', 20),
+(2, 1, '2019-11-11 06:00:00', 20);
 
 -- --------------------------------------------------------
 
@@ -109,11 +135,18 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `password` varchar(400) NOT NULL,
-  `alamat` text,
+  `alamat` text DEFAULT NULL,
   `kecamatan` varchar(255) DEFAULT NULL,
   `kelurahan` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `nama`, `password`, `alamat`, `kecamatan`, `kelurahan`, `email`) VALUES
+(1, 'fakhri19', 'Fakhri Imaduddin', '94cd166631d14dab533858b9b47e9584a2ff3f65', NULL, NULL, NULL, 'fakhriimaduddin19@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -192,13 +225,13 @@ ALTER TABLE `rincian_pesan`
 -- AUTO_INCREMENT for table `sayur`
 --
 ALTER TABLE `sayur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `stok_sayur`
 --
 ALTER TABLE `stok_sayur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `testimoni`
@@ -210,7 +243,7 @@ ALTER TABLE `testimoni`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
