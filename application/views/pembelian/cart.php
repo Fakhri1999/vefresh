@@ -44,7 +44,7 @@
 																	<input type="hidden" name="id" value="<?= $row['id_stok'] ?>">
 																	<td class="product_remove"><a href="javascript:" onclick="parentNode.parentNode.submit()"><i class="fa fa-trash-o"></i></a></td>
 																</form>
-																<td class="product_thumb"><a href="#"><img src="assets/img/s-product/strawberry.jpg" alt=""></a></td>
+																<td class="product_thumb"><a href="#"><img src="<?= base_url('assets/img/s-product/' . $row['foto']) ?>" alt=""></a></td>
 																<td class="product_name"><a href="#"><?= $row['nama'] ?></a></td>
 																<td class="product-price">Rp <?= number_format($row['harga'], 0, ',', '.')?></td>
 																<td class="product_quantity"><label>Quantity</label> <input min="0" max="100" value="<?= $row['jumlah'] ?>" type="number"></td>

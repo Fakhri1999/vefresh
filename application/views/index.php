@@ -5,11 +5,11 @@
 				<div class="row align-items-center">
 					<div class="col-12">
 						<!-- <div class="slider_content">
-                            <p>exclusive offer -10% off this week</p>
-                            <h1>jewelry arrivals</h1>
-                            <p class="slider_price">starting at <span>$2.199.oo</span></p>
-                            <a class="button" href="shop.html">shopping now</a>
-                        </div> -->
+              <p>exclusive offer -10% off this week</p>
+              <h1>jewelry arrivals</h1>
+              <p class="slider_price">starting at <span>$2.199.oo</span></p>
+              <a class="button" href="shop.html">shopping now</a>
+            </div> -->
 					</div>
 				</div>
 			</div>
@@ -18,7 +18,6 @@
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-12">
-
 					</div>
 				</div>
 			</div>
@@ -91,7 +90,10 @@
 															<div class="action_links">
 																<ul>
 																	<li><a href="wishlist.html" data-placement="top" title="Add to Wishlist" data-toggle="tooltip"><span class="icon icon-Heart"></span></a></li>
-																	<li class="add_to_cart"><a href="cart.html" title="add to cart">add to cart</a></li>
+                                  <form action="<?= base_url('add-cart') ?>" method="post">
+                                    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                    <li class="add_to_cart"><a href="javascript:" onclick="parentNode.parentNode.submit()" title="add to cart">add to cart</a></li>
+                                  </form>
 																	<li><a href="compare.html" title="compare"><i class="ion-ios-settings-strong"></i></a>
 																	</li>
 																</ul>
@@ -223,8 +225,8 @@
 														<ul>
 															<li><a href="wishlist.html" data-placement="top" title="Add to Wishlist" data-toggle="tooltip"><span class="icon icon-Heart"></span></a></li>
 															<form action="<?= base_url('add-cart') ?>" method="post">
-																	<li class="add_to_cart"><a href="javascript:" onclick="parentNode.parentNode.submit()" title="add to cart">add to cart</a></li>
 																<input type="hidden" name="id" value="<?= $row['id'] ?>">
+																	<li class="add_to_cart"><a href="javascript:" onclick="parentNode.parentNode.submit()" title="add to cart">add to cart</a></li>
 															</form>
 															<li><a href="compare.html" title="compare"><i class="ion-ios-settings-strong"></i></a>
 															</li>
