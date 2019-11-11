@@ -89,12 +89,14 @@
 															</div>
 															<div class="action_links">
 																<ul>
-																	<li><a href="wishlist.html" data-placement="top" title="Add to Wishlist" data-toggle="tooltip"><span class="icon icon-Heart"></span></a></li>
+																	<!-- <li><a href="wishlist.html" data-placement="top" title="Add to Wishlist" data-toggle="tooltip"><span class="icon icon-Heart"></span></a></li> -->
+                                  <li class="add_to_cart">
                                   <form action="<?= base_url('add-cart') ?>" method="post">
                                     <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                                    <li class="add_to_cart"><a href="javascript:" onclick="parentNode.parentNode.submit()" title="add to cart">add to cart</a></li>
-                                  </form>
-																	<li><a href="compare.html" title="compare"><i class="ion-ios-settings-strong"></i></a>
+                                      <a href="javascript:" onclick="parentNode.submit()" title="add to cart">add to cart</a>
+                                    </form>
+                                  </li>
+																	<!-- <li><a href="compare.html" title="compare"><i class="ion-ios-settings-strong"></i></a> -->
 																	</li>
 																</ul>
 															</div>
