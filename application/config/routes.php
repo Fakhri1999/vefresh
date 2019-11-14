@@ -9,7 +9,9 @@ $route['register'] = 'Login/daftar';
 $route['logout'] = 'User/keluar';
 
 // Pembelian
-$route['add-cart'] = 'Pembelian/tambahKeranjang';
+$route['add-cart-one'] = 'Pembelian/tambahKeranjangSatu';
+$route['delete-cart'] = 'Pembelian/hapusKeranjang';
+$route['update-cart'] = 'Pembelian/ubahKeranjang';
 $route['cart'] = 'Pembelian/keranjang';
 
 $route['default_controller'] = 'Home';
