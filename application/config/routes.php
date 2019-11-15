@@ -7,6 +7,8 @@ $route['register'] = 'Login/daftar';
 
 // User
 $route['logout'] = 'User/keluar';
+$route['profile'] = 'User/profile';
+$route['edit-profile'] = 'User/editProfile';
 
 // Pembelian
 $route['add-cart-one'] = 'Pembelian/tambahKeranjangSatu';

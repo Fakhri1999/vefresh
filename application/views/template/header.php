@@ -67,9 +67,9 @@
                   <a href="#"><i class="ion-gear-b"></i></a>
                   <div class="dropdown_setting">
                     <ul>
-                      <li><a href="<?= base_url('checkout') ?>">Checkout </a></li>
+                      <li><a href="<?= base_url('checkout') ?>">Checkout</a></li>
                       <!-- <li><a href="<?= base_url('') ?>login.html">My Account </a></li> -->
-                      <li><a href="<?= base_url('profile') ?>">Profile </a></li>
+                      <li><a href="<?= base_url('profile') ?>">Profile</a></li>
                       <li><a href="<?= base_url('cart') ?>">Shopping Cart</a></li>
                       <!-- <li><a href="<?= base_url('wishlist') ?>">Wishlist</a></li> -->
                       <li><a href="<?= base_url('shop') ?>">Shop</a></li>
@@ -79,6 +79,7 @@
                   </div>
                 </div>
                 <div class="cart_link">
+                  <?php $keranjang = $this->session->userdata('keranjang'); ?>
                   <a href="#"><i class="ion-android-cart"></i>Rp <?= $keranjang != null ? number_format($this->session->userdata('totalHarga'), 0, ',', '.') : 0 ?> <i class="fa fa-angle-down"></i></a>
                   <span class="cart_quantity"><?= $keranjang != null ? sizeof($keranjang) : 0 ?></span>
                   <!--mini cart-->

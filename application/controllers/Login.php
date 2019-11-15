@@ -55,12 +55,11 @@ class Login extends CI_Controller
 				'password' => sha1($this->input->post('password'))
 			];
 			$result = $this->LoginModel->masuk($where);
-			// print_r($result);
-			// return;
 			if($result){
 				$arrSession = [
 					'id' => $result['id'],
-					'username' => $result['username'],
+          'username' => $result['username'],
+          'nama' => $result['nama'],
 					'email' => $result['email']
 				];
 				$this->session->set_userdata($arrSession);

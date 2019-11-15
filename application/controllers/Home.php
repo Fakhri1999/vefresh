@@ -13,7 +13,6 @@ class Home extends CI_Controller
   {
     $data['title'] = 'Home';
     $data['sayur'] = $this->HomeModel->index();
-    $data['keranjang'] = $this->session->userdata('keranjang');
     
     $this->load->view('template/header', $data);
     $this->load->view('index', $data);
