@@ -1,19 +1,19 @@
 /*-----------------------------------------------------------------------------------
 
-    
+
     CSS INDEX
     =========================================
     01. header css here
     02. slider area css here
     03. product section css here
-    04. banner section css here 
+    04. banner section css here
     05. blog area css here
     06. newsletter area css here
     07. footer area css here
     08. shop page css here
-    09. error page css heer 
+    09. error page css heer
     10. about page css here
-    11. blog page css here 
+    11. blog page css here
     12. blog details css here
     13. cart page css here
     14. checkout page css here
@@ -30,8 +30,8 @@
     25. privacy-policy css here
     26. compare css here
     27. coming soon css here
-    
-    
+
+
 
 -----------------------------------------------------------------------------------*/
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i|Prata&subset=cyrillic,cyrillic-ext,vietnamese");
@@ -148,7 +148,7 @@ ul {
   padding: 0;
 }
 
-/*-- 
+/*--
     - Common Classes
 -----------------------------------------*/
 .fix {
@@ -187,7 +187,7 @@ ul {
   margin: 0;
 }
 
-/*-- 
+/*--
     - Background color
 -----------------------------------------*/
 .bg-white {
@@ -233,10 +233,10 @@ ul {
   height: 100%;
 }
 
-/*-- 
+/*--
     - color
 -----------------------------------------*/
-/*-- 
+/*--
     - Input Placeholder
 -----------------------------------------*/
 input:-moz-placeholder, textarea:-moz-placeholder {
@@ -259,8 +259,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
-/*-- 
-    Scroll Up 
+/*--
+    Scroll Up
 -----------------------------------------*/
 #scrollUp {
   background: #212121 none repeat scroll 0 0;
@@ -288,7 +288,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   animation-iteration-count: infinite;
 }
 
-/*-- 
+/*--
     - Main Wrapper
 -----------------------------------------*/
 .main-wrapper.header-transparent {
@@ -296,7 +296,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   margin: 0 !important;
 }
 
-/*-- 
+/*--
     - Section Padding
 -------------------------------------*/
 .section-ptb {
@@ -6673,7 +6673,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   min-width: 50px;
 }
 .product_variant.color .niceselect_option {
-  width: 300px;
+  width: 100%;
   height: 42px;
   line-height: 40px;
 }
@@ -7807,13 +7807,13 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .order-notes textarea {
   border: 1px solid #e5e5e5;
   border-radius: 0;
-  height: 45px;
+  /* height: 45px; */
   max-width: 100%;
   padding: 0 30px 0 20px;
   background: none;
   font-size: 13px;
   resize: none;
-  line-height: 45px;
+  /* line-height: 45px; */
   width: 100%;
   color: #5a5a5a;
 }

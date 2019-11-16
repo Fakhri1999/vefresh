@@ -11,9 +11,10 @@
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
   <!-- Plugins CSS -->
   <link rel="stylesheet" href="<?= base_url('assets/css/plugins.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/nice-select.css') ?>">
 
   <!-- Main Style CSS -->
   <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">

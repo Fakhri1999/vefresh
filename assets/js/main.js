@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
 
-    new WOW().init();  
+    new WOW().init();
 
     /*---background image---*/
 	function dataBackgroundImage() {
@@ -12,13 +12,13 @@
 			});
 		});
     }
-    
+
     $(window).on('load', function () {
         dataBackgroundImage();
     });
-    
+
     /*---stickey menu---*/
-    $(window).on('scroll',function() {    
+    $(window).on('scroll',function() {
            var scroll = $(window).scrollTop();
            if (scroll < 100) {
             $(".sticky-header").removeClass("sticky");
@@ -26,7 +26,7 @@
             $(".sticky-header").addClass("sticky");
            }
     });
-    
+
 
     /*---slider activation---*/
     $('.slider_area').owlCarousel({
@@ -39,7 +39,7 @@
         items: 1,
         dots:true,
     });
-    
+
     /*---product_column3 activation---*/
     $('.product_column3').slick({
         centerMode: true,
@@ -48,7 +48,7 @@
         arrows:true,
         rows: 2,
         prevArrow:'<button class="prev_arrow"><i class="fa fa-angle-left"></i></button>',
-        nextArrow:'<button class="next_arrow"><i class="fa fa-angle-right"></i></button>', 
+        nextArrow:'<button class="next_arrow"><i class="fa fa-angle-right"></i></button>',
         responsive:[
             {
               breakpoint: 480,
@@ -80,7 +80,7 @@
             },
         ]
     });
-    
+
     /*---product row activation---*/
     $('.product_row1').slick({
         centerMode: true,
@@ -88,7 +88,7 @@
         slidesToShow: 5,
         arrows:true,
         prevArrow:'<button class="prev_arrow"><i class="fa fa-angle-left"></i></button>',
-        nextArrow:'<button class="next_arrow"><i class="fa fa-angle-right"></i></button>', 
+        nextArrow:'<button class="next_arrow"><i class="fa fa-angle-right"></i></button>',
         responsive:[
             {
               breakpoint: 480,
@@ -118,10 +118,10 @@
                   slidesToScroll: 4,
               }
             },
-           
+
         ]
     });
-    
+
     /*---product row 2 activation---*/
     $('.product_row2').slick({
         centerMode: true,
@@ -129,7 +129,7 @@
         slidesToShow: 4,
         arrows:true,
         prevArrow:'<button class="prev_arrow"><i class="fa fa-angle-left"></i></button>',
-        nextArrow:'<button class="next_arrow"><i class="fa fa-angle-right"></i></button>', 
+        nextArrow:'<button class="next_arrow"><i class="fa fa-angle-right"></i></button>',
         responsive:[
             {
               breakpoint: 480,
@@ -159,10 +159,10 @@
                   slidesToScroll: 4,
               }
             },
-           
+
         ]
     });
-    
+
     /*---blog column3 activation---*/
     $('.blog_column3').owlCarousel({
         autoplay: true,
@@ -184,10 +184,10 @@
             992:{
 				items:3,
 			},
-		  
+
         }
     });
-    
+
     /*---blog active activation---*/
     $('.blog_thumb_active').owlCarousel({
         autoplay: true,
@@ -199,7 +199,7 @@
         dots:true,
         navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
     });
-    
+
     /*---single product activation---*/
     $('.single-product-active').owlCarousel({
         autoplay: true,
@@ -229,7 +229,7 @@
 
 		  }
     });
-    
+
     /*---product navactive activation---*/
     $('.product_navactive').owlCarousel({
         autoplay: true,
@@ -254,7 +254,7 @@
             768:{
 				items:4,
 			},
-		  
+
         }
     });
 
@@ -274,7 +274,7 @@
       $('.product-details-large '+ $href ).addClass('active show');
 
     })
-       
+
     /*---testimonial active activation---*/
     $('.testimonial_active').owlCarousel({
         autoplay: true,
@@ -285,7 +285,7 @@
         items: 1,
         dots:true,
     });
-    
+
     /*--- Magnific Popup---*/
     $('.instagram_pupop').magnificPopup({
         type: 'image',
@@ -300,7 +300,7 @@
         removalDelay: 300,
         mainClass: 'mfp-fade'
     });
-    
+
     /*--- Magnific Popup Video---*/
     $('.port_popup').magnificPopup({
         type: 'image',
@@ -308,10 +308,10 @@
             enabled: true
         }
     });
- 
+
     /*--- niceSelect---*/
      $('.select_option').niceSelect();
-    
+
     /*---  Accordion---*/
     $(".faequently-accordion").collapse({
         accordion:true,
@@ -320,8 +320,8 @@
       },
       close: function() {
         this.slideUp(300);
-      }		
-    });	  
+      }
+    });
 
     /*--- counterup activation ---*/
     $('.counter_number').counterUp({
@@ -335,18 +335,18 @@
         easingType: 'linear',
         scrollSpeed: 900,
         animation: 'fade'
-    });   
-    
+    });
+
     /*---countdown activation---*/
-		
+
 	 $('[data-countdown]').each(function() {
 		var $this = $(this), finalDate = $(this).data('countdown');
 		$this.countdown(finalDate, function(event) {
-		$this.html(event.strftime('<div class="countdown_area"><div class="single_countdown"><div class="countdown_number">%D</div><div class="countdown_title">days</div></div><div class="single_countdown"><div class="countdown_number">%H</div><div class="countdown_title">hrs</div></div><div class="single_countdown"><div class="countdown_number">%M</div><div class="countdown_title">mins</div></div><div class="single_countdown"><div class="countdown_number">%S</div><div class="countdown_title">secs</div></div></div>'));     
-               
+		$this.html(event.strftime('<div class="countdown_area"><div class="single_countdown"><div class="countdown_number">%D</div><div class="countdown_title">days</div></div><div class="single_countdown"><div class="countdown_number">%H</div><div class="countdown_title">hrs</div></div><div class="single_countdown"><div class="countdown_number">%M</div><div class="countdown_title">mins</div></div><div class="single_countdown"><div class="countdown_number">%S</div><div class="countdown_title">secs</div></div></div>'));
+
        });
-	});	
-    
+	});
+
        /*---MailChimp---*/
     $('#mc-form').ajaxChimp({
         language: 'en',
@@ -364,11 +364,11 @@
 
         } else if(resp.result === 'error') {
             $('.mailchimp-error').html('' + resp.msg).fadeIn(900);
-        }  
+        }
     }
-    
-    
-    
+
+
+
     /*---slider-range here---*/
     $( "#slider-range" ).slider({
         range: true,
@@ -381,19 +381,37 @@
     });
     $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
        " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-    
+
     /*niceSelect*/
-     $('.niceselect_option').niceSelect();
-    
+		 let n_select = $('.niceselect_option_kecamatan').niceSelect();
+		 $('.niceselect_option_kelurahan').niceSelect()
+		 $('#kecamatan').on('change', function() {
+			 let kelurahan = jQuery.parseJSON($('#data-kelurahan').val())
+			let kecamatan = n_select.niceSelect('selected');
+			// console.log(kelurahan[0]['kelurahan'])
+			// console.log(kelurahan[0]['kelurahan'])
+			let append = ''
+			$('#kelurahan').html('')
+			for (let i = 0; i < kelurahan.length; i++) {
+				if(kelurahan[i]['kecamatan'] == kecamatan){
+					append=`<option value="${kelurahan[i]['kelurahan']}">${kelurahan[i]['kelurahan']}</option>`
+					$('#kelurahan').append(append)
+				}
+			}
+			// console.log(append)
+			// $('#kelurahan').niceSelect('destroy')
+			$('.niceselect_option_kelurahan').niceSelect('update')
+		})
+
     /*---elevateZoom---*/
     $("#zoom1").elevateZoom({
-        gallery:'gallery_01', 
+        gallery:'gallery_01',
         responsive : true,
         cursor: 'crosshair',
         zoomType : 'inner'
-    
-    });  
-    
+
+    });
+
     /*---portfolio Isotope activation---*/
       $('.portfolio_gallery').imagesLoaded( function() {
 
@@ -409,17 +427,17 @@
         $('.portfolio_button').on( 'click', 'button', function() {
            var filterValue = $(this).attr('data-filter');
            $grid.isotope({ filter: filterValue });
-            
+
            $(this).siblings('.active').removeClass('active');
            $(this).addClass('active');
         });
-       
+
     });
-    
+
     /*---tooltip---*/
     $('[data-toggle="tooltip"]').tooltip();
 
-    
+
 
     /*---Tooltip Active---*/
    $('.action_links ul li a,.quick_button a,.social_sharing ul li a,.product_d_action a,.priduct_social a').tooltip({
@@ -428,9 +446,9 @@
         container: 'body'
     });
 
- 
+
     /*---Newsletter Popup---*/
-   
+
         setTimeout(function() {
             if($.cookie('shownewsletter')==1) $('.newletter-popup').hide();
             $('#subscribe_pemail').keypress(function(e) {
@@ -450,15 +468,15 @@
                 $('.newletter-popup').bPopup();
             }
             $('#newsletter_popup_dont_show_again').on('change', function(){
-                if($.cookie("shownewsletter") != 1){   
+                if($.cookie("shownewsletter") != 1){
                     $.cookie("shownewsletter",'1')
                 }else{
                     $.cookie("shownewsletter",'0')
                 }
-            }); 
+            });
         }, 2500);
 
-    
+
 
     /*---slide toggle---*/
    $('.cart_link > a').on('click', function(event){
@@ -466,25 +484,25 @@
             $('.mini_cart').slideToggle('medium');
         }
     });
-    
-    
+
+
      /*---canvas menu activation---*/
     $('.canvas_open').on('click', function(){
         $('.Offcanvas_menu_wrapper,.off_canvars_overlay').addClass('active')
     });
-    
+
     $('.canvas_close,.off_canvars_overlay').on('click', function(){
         $('.Offcanvas_menu_wrapper,.off_canvars_overlay').removeClass('active')
     });
-    
-    
+
+
     /*---Off Canvas Menu---*/
     var $offcanvasNav = $('.offcanvas_main_menu'),
         $offcanvasNavSubMenu = $offcanvasNav.find('.sub-menu');
     $offcanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i class="fa fa-angle-down"></i></span>');
-    
+
     $offcanvasNavSubMenu.slideUp();
-    
+
     $offcanvasNav.on('click', 'li a, li .menu-expand', function(e) {
         var $this = $(this);
         if ( ($this.parent().attr('class').match(/\b(menu-item-has-children|has-children|has-sub-menu)\b/)) && ($this.attr('href') === '#' || $this.hasClass('menu-expand')) ) {
@@ -502,8 +520,8 @@
         	$this.toggleClass('menu-open');
         }
     });
-    
-    
+
+
     /*js ripples activation*/
     $('.js-ripples').ripples({
 		resolution: 512,
@@ -511,5 +529,5 @@
 		perturbance: 0.04
 	});
 
- 
-})(jQuery);	
+
+})(jQuery);

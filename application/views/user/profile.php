@@ -27,7 +27,8 @@
           <div class="col-lg-4 col-md-6"></div>
           <div class="col-lg-4 col-md-6">
             <h2>Profile</h2>
-            <br>
+						<br>
+						<?= $this->session->userdata('message') ?>
             <!-- <h4>Detail Transfer</h4> -->
 
             <div class="coupon_code right">
