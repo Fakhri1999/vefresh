@@ -11,4 +11,18 @@ class PembelianModel extends CI_Model
 		->limit(1)
 		->get('stok_sayur st')->row_array();
 	}
+
+	public function ambilOngkirBerdasarkanKelurahan($kelurahan){
+		return $this->db->get_where('ongkir', ['kelurahan' => $kelurahan])->row_array();
+	}
+
+	public function masukkanDataPembelian($pesan){
+		$this->db->insert('pesan', $pesan);
+		return $this->db->insert_id();
+	}
+
+	public function masukkanRincianDataPembelian($rincianPesan){
+		$this->db->insert_batch('rincian_pesan', $rincianPesan);
+		return $this->db->affected_rows() > 0 ? true : false;
+	}
 }

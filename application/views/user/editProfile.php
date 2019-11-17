@@ -21,12 +21,17 @@
     					<h2>Edit Profile</h2>
     					<form action="<?= base_url('edit-profile') ?>" method="post">
     						<p>
-    							<label for="username">Username</label>
+									<label for="username">Username</label>
+									<input type="hidden" name="id" value="<?= $user['id'] ?>">
     							<input type="text" id="username" name="username" value="<?= $user['username'] ?>" required>
     						</p>
     						<p>
-    							<label for="nama">Nama</label>
+    							<label for="nama">Name</label>
     							<input type="text" id="nama" name="nama" value="<?= $user['nama'] ?>" required>
+    						</p>
+    						<p>
+    							<label for="no_hp">No HP</label>
+    							<input type="number" id="no_hp" name="no_hp" value="<?= $user['no_hp'] ?>" required>
     						</p>
     						<p>
     							<label for="email">Email</label>

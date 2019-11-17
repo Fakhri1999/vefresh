@@ -100,7 +100,7 @@
                     <p class="cart_amount">Rp <?= $keranjang != null ? number_format($total, 0, ',', '.') : 0 ?></p>
                   </div>
                   <div class="checkout_btn">
-                    <a href="checkout.html">Proceed to Checkout</a>
+                    <a href="<?= base_url('checkout') ?>">Proceed to Checkout</a>
                   </div>
                 </div>
               </div>

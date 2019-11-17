@@ -8,7 +8,7 @@ class UserModel extends CI_Model
 	}
 
 	public function ambilDataKelurahan(){
-		return $this->db->get('ongkir')->result_array();
+		return $this->db->order_by('kelurahan asc')->get('ongkir')->result_array();
 	}
 
 	public function ambilDataKecamatan(){

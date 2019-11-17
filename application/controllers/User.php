@@ -54,11 +54,21 @@ class User extends CI_Controller
 			$dataUpdate = [
 				'username' => $this->input->post('username'),
 				'nama' => $this->input->post('nama'),
+				'no_hp' => $this->input->post('no_hp'),
 				'email' => $this->input->post('email'),
 				'alamat' => $this->input->post('alamat'),
 				'kecamatan' => $this->input->post('kecamatan'),
 				'kelurahan' => $this->input->post('kelurahan')
 			];
+
+			$arrSession = [
+				'id' => $this->session->userdata('id'),
+				'username' => $this->input->post('username'),
+				'nama' => $this->input->post('nama'),
+				'no_hp' => $this->input->post('no_hp'),
+				'email' => $this->input->post('email')
+			];
+			$this->session->set_userdata($arrSession);
 			// print_r($where);
 			$this->UserModel->editDataUser($this->session->userdata('id'), $dataUpdate);
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">

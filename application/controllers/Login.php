@@ -60,6 +60,7 @@ class Login extends CI_Controller
 					'id' => $result['id'],
           'username' => $result['username'],
           'nama' => $result['nama'],
+          'no_hp' => $result['no_hp'],
 					'email' => $result['email']
 				];
 				$this->session->set_userdata($arrSession);

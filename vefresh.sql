@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2019 at 07:31 PM
+-- Generation Time: Nov 17, 2019 at 06:42 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -31,8 +31,72 @@ SET time_zone = "+00:00";
 CREATE TABLE `ongkir` (
   `id` int(11) NOT NULL,
   `kelurahan` varchar(255) NOT NULL,
+  `kecamatan` varchar(255) NOT NULL,
   `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ongkir`
+--
+
+INSERT INTO `ongkir` (`id`, `kelurahan`, `kecamatan`, `harga`) VALUES
+(1, 'Arjosari', 'Blimbing', 10000),
+(2, 'Balearjosari', 'Blimbing', 10000),
+(3, 'Blimbing', 'Blimbing', 10000),
+(4, 'Bunulrejo', 'Blimbing', 10000),
+(5, 'Jodipan', 'Blimbing', 10000),
+(6, 'Kesatrian', 'Blimbing', 10000),
+(7, 'Pandanwangi', 'Blimbing', 10000),
+(8, 'Polehan', 'Blimbing', 10000),
+(9, 'Polowijen', 'Blimbing', 10000),
+(10, 'Purwantoro', 'Blimbing', 10000),
+(11, 'Purwodadi', 'Blimbing', 10000),
+(12, 'Arjowinangun', 'Kedungkandang', 5000),
+(13, 'Bumiayu', 'Kedungkandang', 5000),
+(14, 'Buring', 'Kedungkandang', 5000),
+(15, 'Cemorokandang', 'Kedungkandang', 5000),
+(16, 'Kedungkandang', 'Kedungkandang', 5000),
+(17, 'Kotalama', 'Kedungkandang', 5000),
+(18, 'Lesanpuro', 'Kedungkandang', 5000),
+(19, 'Madyopuro', 'Kedungkandang', 5000),
+(20, 'Mergonoso', 'Kedungkandang', 5000),
+(21, 'Sawojajar', 'Kedungkandang', 5000),
+(22, 'Tlogowaru', 'Kedungkandang', 5000),
+(23, 'Wonokoyo', 'Kedungkandang', 5000),
+(24, 'Bareng', 'Klojen', 15000),
+(25, 'Gadingasri', 'Klojen', 15000),
+(26, 'Kasin', 'Klojen', 15000),
+(27, 'Kauman', 'Klojen', 15000),
+(28, 'Kiduldalem', 'Klojen', 15000),
+(29, 'Klojen', 'Klojen', 15000),
+(30, 'Oro-Oro Dowo', 'Klojen', 15000),
+(31, 'Penanggungan', 'Klojen', 15000),
+(32, 'Rampal Celaket', 'Klojen', 15000),
+(33, 'Samaan', 'Klojen', 15000),
+(34, 'Sukoharjo', 'Klojen', 15000),
+(35, 'Dinoyo', 'Lowokwaru', 20000),
+(36, 'Jatimulyo', 'Lowokwaru', 20000),
+(37, 'Ketawanggede', 'Lowokwaru', 20000),
+(38, 'Lowokwaru', 'Lowokwaru', 20000),
+(39, 'Merjosari', 'Lowokwaru', 20000),
+(40, 'Mojolangu', 'Lowokwaru', 20000),
+(41, 'Sumbersari', 'Lowokwaru', 20000),
+(42, 'Tasikmadu', 'Lowokwaru', 20000),
+(43, 'Tlogomas', 'Lowokwaru', 20000),
+(44, 'Tulusrejo', 'Lowokwaru', 20000),
+(45, 'Tunggulwulung', 'Lowokwaru', 20000),
+(46, 'Tunjungsekar', 'Lowokwaru', 20000),
+(47, 'Bakalankrajan', 'Sukun', 10000),
+(48, 'Bandulan', 'Sukun', 10000),
+(49, 'Bandungrejosari', 'Sukun', 10000),
+(50, 'Ciptomulyo', 'Sukun', 10000),
+(51, 'Gadang', 'Sukun', 10000),
+(52, 'Karangbesuki', 'Sukun', 10000),
+(53, 'Kebonsari', 'Sukun', 10000),
+(54, 'Mulyorejo', 'Sukun', 10000),
+(55, 'Pisangcandi', 'Sukun', 10000),
+(56, 'Sukun', 'Sukun', 10000),
+(57, 'Tanjungrejo', 'Sukun', 10000);
 
 -- --------------------------------------------------------
 
@@ -43,9 +107,16 @@ CREATE TABLE `ongkir` (
 CREATE TABLE `pesan` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `total` int(11) NOT NULL,
-  `tanggal_pembelian` datetime NOT NULL
+  `total` varchar(60) NOT NULL,
+  `tanggal_pembelian` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id`, `id_user`, `total`, `tanggal_pembelian`) VALUES
+(4, 1, '190000', '2019-11-18 00:03:15');
 
 -- --------------------------------------------------------
 
@@ -57,8 +128,17 @@ CREATE TABLE `rincian_pesan` (
   `id` int(11) NOT NULL,
   `id_pesan` int(11) NOT NULL,
   `id_stok_sayur` int(11) NOT NULL,
-  `jumlah` int(11) NOT NULL
+  `jumlah` int(11) NOT NULL,
+  `harga` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rincian_pesan`
+--
+
+INSERT INTO `rincian_pesan` (`id`, `id_pesan`, `id_stok_sayur`, `jumlah`, `harga`) VALUES
+(7, 4, 1, 2, '130000'),
+(8, 4, 3, 3, '60000');
 
 -- --------------------------------------------------------
 
@@ -109,7 +189,15 @@ CREATE TABLE `stok_sayur` (
 
 INSERT INTO `stok_sayur` (`id`, `id_sayur`, `waktu_datang`, `stok`) VALUES
 (1, 1, '2019-11-11 00:00:00', 20),
-(2, 1, '2019-11-11 06:00:00', 20);
+(2, 2, '2019-11-11 06:00:00', 20),
+(3, 3, '2019-11-11 06:00:00', 20),
+(4, 4, '2019-11-11 06:00:00', 20),
+(5, 5, '2019-11-11 06:00:00', 20),
+(6, 6, '2019-11-11 06:00:00', 20),
+(7, 7, '2019-11-11 06:00:00', 20),
+(8, 8, '2019-11-11 06:00:00', 20),
+(9, 9, '2019-11-11 06:00:00', 20),
+(10, 10, '2019-11-11 06:00:00', 20);
 
 -- --------------------------------------------------------
 
@@ -133,8 +221,9 @@ CREATE TABLE `testimoni` (
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `password` varchar(400) NOT NULL,
+  `no_hp` varchar(60) DEFAULT NULL,
   `alamat` text DEFAULT NULL,
   `kecamatan` varchar(255) DEFAULT NULL,
   `kelurahan` varchar(255) DEFAULT NULL,
@@ -145,8 +234,8 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `nama`, `password`, `alamat`, `kecamatan`, `kelurahan`, `email`) VALUES
-(1, 'fakhri19', 'Fakhri Imaduddin', '94cd166631d14dab533858b9b47e9584a2ff3f65', NULL, NULL, NULL, 'fakhriimaduddin19@gmail.com');
+INSERT INTO `user` (`id`, `username`, `password`, `nama`, `no_hp`, `alamat`, `kecamatan`, `kelurahan`, `email`) VALUES
+(1, 'fakhri19', '94cd166631d14dab533858b9b47e9584a2ff3f65', 'Fakhri Imaduddin', '081234106350', 'Perum Puri Kartika Asri FF-3', 'Kedungkandang', 'Arjowinangun', 'fakhriimaduddin19@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -207,19 +296,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `ongkir`
 --
 ALTER TABLE `ongkir`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rincian_pesan`
 --
 ALTER TABLE `rincian_pesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sayur`
@@ -231,7 +320,7 @@ ALTER TABLE `sayur`
 -- AUTO_INCREMENT for table `stok_sayur`
 --
 ALTER TABLE `stok_sayur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `testimoni`

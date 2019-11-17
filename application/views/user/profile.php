@@ -42,6 +42,10 @@
                   <label class="cart_amount"><?= $this->session->userdata('nama') ?></label>
                 </div>
                 <div class="cart_subtotal ">
+                  <label>No HP</label>
+                  <label class="cart_amount"><?= $this->session->userdata('no_hp') ?></label>
+                </div>
+                <div class="cart_subtotal ">
                   <label>Email</label>
                   <label class="cart_amount"><?= $this->session->userdata('email') ?></label>
                 </div>
