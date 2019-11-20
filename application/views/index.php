@@ -84,7 +84,7 @@
 													<div class="action_links">
 														<ul>
 															<!-- <li><a href="wishlist.html" data-placement="top" title="Add to Wishlist" data-toggle="tooltip"><span class="icon icon-Heart"></span></a></li> -->
-															<form action="<?= base_url('add-cart') ?>" method="post">
+															<form action="<?= base_url('add-cart-one') ?>" method="post">
 																<input type="hidden" name="id" value="<?= $row['id'] ?>">
 																	<li class="add_to_cart"><a href="javascript:" onclick="parentNode.parentNode.submit()" title="add to cart">add to cart</a></li>
 															</form>
@@ -119,7 +119,7 @@
 	
 
 	<!--blog section area start-->
-	<section class="blog_section">
+	<!-- <section class="blog_section">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -211,7 +211,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!--blog section area end-->
 
 	<!--testimonials section start-->

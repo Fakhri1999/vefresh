@@ -16,6 +16,7 @@ $route['delete-cart'] = 'Pembelian/hapusKeranjang';
 $route['update-cart'] = 'Pembelian/ubahKeranjang';
 $route['cart'] = 'Pembelian/keranjang';
 $route['checkout'] = 'Pembelian/checkout';
+$route['pembayaran'] = 'Pembelian/pembayaran';
 
 $route['default_controller'] = 'Home';
 $route['404_override'] = '';

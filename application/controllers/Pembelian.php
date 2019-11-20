@@ -191,4 +191,11 @@ class Pembelian extends CI_Controller
 			// return;
 		}
 	}
+
+	public function pembayaran(){
+		$data['title'] = 'Pembayaran';
+		$this->load->view('template/header', $data);
+		$this->load->view('pembelian/pembayaran');
+		$this->load->view('template/footer');
+	}
 }
