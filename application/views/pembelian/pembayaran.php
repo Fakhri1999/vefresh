@@ -79,21 +79,25 @@
 												<h4>Upload bukti transfer</h4>
 												<div class="coupon_code right">
 													<div class="coupon_inner">                            
-														<!-- <div class="checkout_btn">
-															<a href="#">Salin No Rekening</a>
-														</div> -->
-														<!-- <div class="input-group mb-3"> -->
+														
 															<form action="<?= base_url('pembayaran/re') ?>" method="POST">
-																<div class="form-group">
-																	<!-- <label for="exampleFormControlFile1">Upload bukti bayar</label> -->
+																<!-- <div class="form-group">
 																	<input type="file" class="form-control-file" id="exampleFormControlFile1">
+																</div> -->
+																<div class="input-group">
+  																<div class="custom-file">
+    																<input type="file" class="custom-file-input" id="inputGroupFile01"
+      																aria-describedby="inputGroupFileAddon01">
+    																<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+  																</div>
 																</div>
+																<br>
 																<div class="checkout_btn">
 																	<a href="javascript:" onclick="parentNode.parentNode.submit()">Upload</a>
 																	<!-- <a href="javascriot:" onclick="console.log('tes')">Upload</a> -->
 																</div>
 															</form>
-																<!-- </div> -->
+													</div>
                         </div>
                     </div>
                 </div>
