@@ -73,6 +73,7 @@
 											<!-- <li><a href="<?= base_url('') ?>login.html">My Account </a></li> -->
 											<li><a href="<?= base_url('profile') ?>">Profile</a></li>
 											<li><a href="<?= base_url('cart') ?>">Shopping Cart</a></li>
+											<li><a href="<?= base_url('payment') ?>">Payment</a></li>
 											<!-- <li><a href="<?= base_url('wishlist') ?>">Wishlist</a></li> -->
 											<li><a href="<?= base_url('shop') ?>">Shop</a></li>
 											<li><a href="<?= base_url('logout') ?>">Logout</a></li>

@@ -20,35 +20,24 @@
     <!-- customer login start -->
     <div class="customer_login">
         <div class="container">
-            <div class="row">
-
-
+            <div class="row justify-content-center">
                 <!--register area start-->
-                <div class="col-lg-4 col-md-6"></div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <h2>Bank Transfer</h2>
                     <br>
                     <h4>Detail Transfer</h4>
-
+										<?= $this->session->flashdata('message'); ?>
                     <div class="coupon_code right">
                         <div class="coupon_inner">
-                            <div class="cart_subtotal">
-                                <label>Total</label>
-                                <label class="cart_amount">Rp <?= number_format($this->session->userdata('totalHarga'));?></label>
+                            <div class="cart_subtotal ">
+                                <label>Nomor Order</label>
+                                <label class="cart_amount"><b><?= $result['nomor_order'] ?></b></label>
                             </div>
-                            <!-- <div class="cart_subtotal ">
-                                <label>Biaya Transaksi</label>
-                                <label class="cart_amount">-Rp. 375</label>
-                            </div> -->
-                            <a href="#"></a>
 
                             <div class="cart_subtotal">
                                 <label>Jumlah Harus Dibayar</label>
-                                <label class="cart_amount">Rp <?= number_format($this->session->userdata('totalHarga'));?></label>
+                                <label class="cart_amount">Rp <?= number_format($result['total'], 0, ',', '.');?></label>
                             </div>
-                            <!-- <div class="checkout_btn">
-                                    <a href="#">Salin Jumlah</a>
-                                </div> -->
                         </div>
                     </div>
                     <br>
@@ -78,17 +67,18 @@
 												<br>
 												<h4>Upload bukti transfer</h4>
 												<div class="coupon_code right">
-													<div class="coupon_inner">                            
-														
-															<form action="<?= base_url('pembayaran/re') ?>" method="POST">
+													<div class="coupon_inner">
+
+															<form action="<?= base_url("payment/" . $result['nomor_order']) ?>" method="POST" enctype="multipart/form-data">
 																<!-- <div class="form-group">
 																	<input type="file" class="form-control-file" id="exampleFormControlFile1">
 																</div> -->
 																<div class="input-group">
   																<div class="custom-file">
-    																<input type="file" class="custom-file-input" id="inputGroupFile01"
+    																<input type="file" name="buktiBayar" class="custom-file-input" id="inputGroupFile01"
       																aria-describedby="inputGroupFileAddon01">
-    																<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+																		<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+																		<input type="hidden" name="nomor" value="<?= $result['nomor_order'] ?>">
   																</div>
 																</div>
 																<br>
@@ -105,4 +95,6 @@
             </div>
         </div>
     </div>
-    <!-- customer login end -->
+		<!-- customer login end -->
+
+		<script src="<?= base_url('assets/js/custom-file-input.js') ?>"></script>

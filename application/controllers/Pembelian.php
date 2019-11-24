@@ -152,13 +152,15 @@ class Pembelian extends CI_Controller
 			$this->session->set_userdata($arrSession);
 			$this->UserModel->editDataUser($this->session->userdata('id'), $dataUpdate);
 
+			$angkaAcak = rand(1, 999);
 			$arrPesan = [
 				'id_user' => $this->session->userdata('id'),
-				'total' => $this->session->userdata('totalHarga')
+				'total' => $this->session->userdata('totalHarga') + $angkaAcak,
+				'nomor_order' => 'VEFRESH-' . date('mdhis') . '-' . $angkaAcak
 			];
 
 			$id_pesan = $this->PembelianModel->masukkanDataPembelian($arrPesan);
-			// echo $id_pesan;
+
 			$keranjang = $this->session->userdata('keranjang');
 			$arrRincianPesan = [];
 			for ($i = 0; $i < sizeof($keranjang); $i++) {
@@ -175,7 +177,7 @@ class Pembelian extends CI_Controller
 				$this->session->set_flashdata('message-flash', "<script>Swal.fire({
 					icon: 'success',
 					title: 'Berhasil',
-					text: 'Pemesanan berhasil disimpan!'
+					html: 'Pemesanan berhasil disimpan!<br>Nomor Order Anda adalah <br><b>" . $arrPesan['kode_pembelian'] . "</b>'
 				})</script>");
 				$this->session->unset_userdata(['keranjang', 'totalHarga']);
 				redirect('');
@@ -187,15 +189,81 @@ class Pembelian extends CI_Controller
 				})</script>");
 				redirect('checkout');
 			}
-			// print_r($arrRincianPesan);
-			// return;
 		}
 	}
 
-	public function pembayaran(){
+	public function pembayaranAwal()
+	{
+		$this->form_validation->set_rules('nomor', 'Order number', 'trim|required');
+		if ($this->form_validation->run() == false) {
+			$data['title'] = 'Pembayaran';
+			$this->load->view('template/header', $data);
+			$this->load->view('pembelian/pembayaranAwal');
+			$this->load->view('template/footer');
+		} else {
+			$nomorOrder = $this->input->post('nomor');
+			$result = $this->PembelianModel->cariPembelianBerdasarkanNomorOrder($nomorOrder);
+			if ($result) {
+				redirect("payment/$nomorOrder");
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+				Invalid order number
+				</div>');
+				redirect('payment');
+			}
+		}
+	}
+
+	public function pembayaran($nomorOrder)
+	{
+		if (empty($_FILES['buktiBayar']['name'])) {
+			$this->form_validation->set_message('required', 'Kolom {field} tidak boleh kosong.');
+			$this->form_validation->set_rules('buktiBayar', 'Bukti bayar', 'required');
+		} else {
+			$this->form_validation->set_rules('buktiBayar', 'Bukti bayar', 'trim|xss_clean');
+		}
+		if ($this->form_validation->run() == false) {
+			$data['title'] = 'Pembayaran';
+			$data['result'] = $this->PembelianModel->cariPembelianBerdasarkanNomorOrder($nomorOrder);
+			$this->load->view('template/header', $data);
+			$this->load->view('pembelian/pembayaran');
+			$this->load->view('template/footer');
+		} else {
+			$config['upload_path']		= './uploads/bukti-bayar/';
+			$config['file_name']			= $nomorOrder;
+			$config['allowed_types']	= 'jpg|png|jpeg';
+			$config['max_size']				= 2000;
+
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload('buktiBayar')) {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+				' . $this->upload->display_errors() . '
+				</div>');
+				redirect("payment/$nomorOrder");
+			} else {
+				$arr = [
+					'bukti_bayar' => $nomorOrder,
+					'status_bayar' => 1
+				];
+				$this->PembelianModel->uploadBuktiBayar($arr, $nomorOrder);
+				$this->session->set_flashdata('sukses', 'sukses');
+				redirect('payment-success');
+			}
+		}
+	}
+
+	public function pembayaranSukses()
+	{
 		$data['title'] = 'Pembayaran';
+
 		$this->load->view('template/header', $data);
-		$this->load->view('pembelian/pembayaran');
+		$this->load->view('pembelian/pembayaranSukses');
 		$this->load->view('template/footer');
+	}
+
+	public function tes()
+	{
+		echo rand(1, 999);
 	}
 }

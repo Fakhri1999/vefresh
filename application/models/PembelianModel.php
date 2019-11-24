@@ -25,4 +25,13 @@ class PembelianModel extends CI_Model
 		$this->db->insert_batch('rincian_pesan', $rincianPesan);
 		return $this->db->affected_rows() > 0 ? true : false;
 	}
+
+	public function cariPembelianBerdasarkanNomorOrder($nomorOrder){
+		return $this->db->get_where('pesan', ['nomor_order' => $nomorOrder])->row_array();
+	}
+
+	public function uploadBuktiBayar($update, $nomorOrder){
+		$this->db->where('nomor_order', $nomorOrder);
+		$this->db->update('pesan', $update);
+	}
 }

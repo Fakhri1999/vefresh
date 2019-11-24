@@ -6,7 +6,9 @@
 	<!-- Main JS -->
 	<script src="<?= base_url('') ?>assets/js/main.js"></script>
 	<script src="<?= base_url('') ?>assets/js/custom-file-input.js"></script>
+	<script>
+		bsCustomFileInput.init()
+	</script>
+	</body>
 
-</body>
-
-</html>
+	</html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2019 at 06:42 PM
+-- Generation Time: Nov 23, 2019 at 03:33 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -106,6 +106,7 @@ INSERT INTO `ongkir` (`id`, `kelurahan`, `kecamatan`, `harga`) VALUES
 
 CREATE TABLE `pesan` (
   `id` int(11) NOT NULL,
+  `kode_pembelian` varchar(255) NOT NULL,
   `id_user` int(11) NOT NULL,
   `total` varchar(60) NOT NULL,
   `tanggal_pembelian` datetime NOT NULL DEFAULT current_timestamp()
@@ -115,8 +116,8 @@ CREATE TABLE `pesan` (
 -- Dumping data for table `pesan`
 --
 
-INSERT INTO `pesan` (`id`, `id_user`, `total`, `tanggal_pembelian`) VALUES
-(4, 1, '190000', '2019-11-18 00:03:15');
+INSERT INTO `pesan` (`id`, `kode_pembelian`, `id_user`, `total`, `tanggal_pembelian`) VALUES
+(6, 'VEFRESH-1123032043-534', 1, '43000', '2019-11-23 21:20:43');
 
 -- --------------------------------------------------------
 
@@ -137,8 +138,7 @@ CREATE TABLE `rincian_pesan` (
 --
 
 INSERT INTO `rincian_pesan` (`id`, `id_pesan`, `id_stok_sayur`, `jumlah`, `harga`) VALUES
-(7, 4, 1, 2, '130000'),
-(8, 4, 3, 3, '60000');
+(10, 6, 2, 1, '43000');
 
 -- --------------------------------------------------------
 
@@ -302,13 +302,13 @@ ALTER TABLE `ongkir`
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `rincian_pesan`
 --
 ALTER TABLE `rincian_pesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `sayur`

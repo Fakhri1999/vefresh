@@ -8,6 +8,6 @@ class LoginModel extends CI_Model
 	}
 
 	public function masuk($where){
-		return $this->db->get('user', $where)->row_array();
+		return $this->db->get_where('user', $where)->row_array();
 	}
 }
