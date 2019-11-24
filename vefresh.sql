@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2019 at 03:33 PM
+-- Generation Time: Nov 24, 2019 at 05:52 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -106,18 +106,20 @@ INSERT INTO `ongkir` (`id`, `kelurahan`, `kecamatan`, `harga`) VALUES
 
 CREATE TABLE `pesan` (
   `id` int(11) NOT NULL,
-  `kode_pembelian` varchar(255) NOT NULL,
+  `nomor_order` varchar(255) NOT NULL,
   `id_user` int(11) NOT NULL,
   `total` varchar(60) NOT NULL,
-  `tanggal_pembelian` datetime NOT NULL DEFAULT current_timestamp()
+  `tanggal_pembelian` datetime NOT NULL DEFAULT current_timestamp(),
+  `bukti_bayar` varchar(255) DEFAULT NULL,
+  `status_bayar` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pesan`
 --
 
-INSERT INTO `pesan` (`id`, `kode_pembelian`, `id_user`, `total`, `tanggal_pembelian`) VALUES
-(6, 'VEFRESH-1123032043-534', 1, '43000', '2019-11-23 21:20:43');
+INSERT INTO `pesan` (`id`, `nomor_order`, `id_user`, `total`, `tanggal_pembelian`, `bukti_bayar`, `status_bayar`) VALUES
+(6, 'VEFRESH-1123032043-534', 1, '43534', '2019-11-23 21:20:43', NULL, 0);
 
 -- --------------------------------------------------------
 
