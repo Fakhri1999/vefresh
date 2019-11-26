@@ -204,7 +204,22 @@ class Pembelian extends CI_Controller
 			$nomorOrder = $this->input->post('nomor');
 			$result = $this->PembelianModel->cariPembelianBerdasarkanNomorOrder($nomorOrder);
 			if ($result) {
-				redirect("payment/$nomorOrder");
+				switch ($result['status_bayar']) {
+					case '1':
+						$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+						Your payment is still in the queue for us to check.
+						</div>');
+						break;
+					case '2':
+						$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+						This order number has succesfully finished
+						</div>');
+						break;
+					default:
+						redirect("payment/$nomorOrder");
+						break;
+				}
+				redirect('payment');
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 				Invalid order number
@@ -225,6 +240,17 @@ class Pembelian extends CI_Controller
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Pembayaran';
 			$data['result'] = $this->PembelianModel->cariPembelianBerdasarkanNomorOrder($nomorOrder);
+			if($data['result']['status_bayar'] == '1'){
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+				Your payment is still in the queue for us to check.
+				</div>');
+				redirect('payment');
+			} else if($data['result']['status_bayar'] == '2') {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+				This order number has succesfully finished the payment
+				</div>');
+				redirect('payment');
+			}
 			$this->load->view('template/header', $data);
 			$this->load->view('pembelian/pembayaran');
 			$this->load->view('template/footer');
