@@ -177,7 +177,7 @@ class Pembelian extends CI_Controller
 				$this->session->set_flashdata('message-flash', "<script>Swal.fire({
 					icon: 'success',
 					title: 'Berhasil',
-					html: 'Pemesanan berhasil disimpan!<br>Nomor Order Anda adalah <br><b>" . $arrPesan['kode_pembelian'] . "</b>'
+					html: 'Pemesanan berhasil disimpan!<br>Nomor Order Anda adalah <br><b>" . $arrPesan['nomor_order'] . "</b>'
 				})</script>");
 				$this->session->unset_userdata(['keranjang', 'totalHarga']);
 				redirect('');
@@ -202,7 +202,7 @@ class Pembelian extends CI_Controller
 			$this->load->view('template/footer');
 		} else {
 			$nomorOrder = $this->input->post('nomor');
-			$result = $this->PembelianModel->cariPembelianBerdasarkanNomorOrder($nomorOrder);
+			$result = $this->PembelianModel->cariPembelianBerdasarkanNomorOrder($nomorOrder, $this->session->userdata('id'));
 			if ($result) {
 				switch ($result['status_bayar']) {
 					case '1':
@@ -239,15 +239,23 @@ class Pembelian extends CI_Controller
 		}
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Pembayaran';
-			$data['result'] = $this->PembelianModel->cariPembelianBerdasarkanNomorOrder($nomorOrder);
-			if($data['result']['status_bayar'] == '1'){
-				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-				Your payment is still in the queue for us to check.
-				</div>');
-				redirect('payment');
-			} else if($data['result']['status_bayar'] == '2') {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+			$data['result'] = $this->PembelianModel->cariPembelianBerdasarkanNomorOrder($nomorOrder, $this->session->userdata('id'));
+			if ($data['result']) {
+
+				if ($data['result']['status_bayar'] == '1') {
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+					Your payment is still in the queue for us to check.
+					</div>');
+					redirect('payment');
+				} else if ($data['result']['status_bayar'] == '2') {
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 				This order number has succesfully finished the payment
+				</div>');
+					redirect('payment');
+				}
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+				Invalid order number
 				</div>');
 				redirect('payment');
 			}

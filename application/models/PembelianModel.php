@@ -26,8 +26,10 @@ class PembelianModel extends CI_Model
 		return $this->db->affected_rows() > 0 ? true : false;
 	}
 
-	public function cariPembelianBerdasarkanNomorOrder($nomorOrder){
-		return $this->db->get_where('pesan', ['nomor_order' => $nomorOrder])->row_array();
+	public function cariPembelianBerdasarkanNomorOrder($nomorOrder, $id_user){
+		return $this->db->where('nomor_order' , $nomorOrder)
+		->where('id_user', $id_user)
+		->get('pesan')->row_array();
 	}
 
 	public function uploadBuktiBayar($update, $nomorOrder){
